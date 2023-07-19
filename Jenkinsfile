@@ -22,8 +22,8 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('lyriqsele/dockerhub', "./docker")
-                 docker.withRegistry('https://hub.docker.com/repository/docker/lyriqsele/dockerhub/general', 'dockerhub') {
+                 def customImage = docker.build('lyriqsele / jenkinscicd', "./docker")
+                 docker.withRegistry('https://hub.docker.com/repository/docker/lyriqsele/jenkinscicd/general', 'dockerhub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
            }
