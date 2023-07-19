@@ -22,7 +22,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('lyriqsele/cloudfreak', "./docker")
+                 def customImage = docker.build('lyriqsele/dockerhub', "./docker")
                  docker.withRegistry('https://hub.docker.com/repository/docker/lyriqsele/dockerhub/general', 'dockerhub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
