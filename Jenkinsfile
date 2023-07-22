@@ -23,7 +23,7 @@ pipeline {
            steps {
                script {         
                  def customImage = docker.build('lyriqsele/jenkinscicd', "./docker")
-                 docker.withRegistry('https://index.docker.io/v1/', 'project') {
+                 docker.withRegistry('https://index.docker.io/v1/', 'jenkinscicd') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
            }
